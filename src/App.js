@@ -1,9 +1,34 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Head from "./components/Head";
 
 function App() {
-  return <div className="App"></div>;
+  const [nasaImg, setNasaImg] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        //"https://api.nasa.gov/planetary/apod?api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG"
+        "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+      )
+      .then((res) => {
+        console.log(res.data);
+        setNasaImg(res.data);
+      });
+  }, []);
+
+  return (
+    <div className="bg">
+      <header>
+        <h1 className="title">NASA PHOTO OF THE DAY</h1>
+      </header>
+      <Head
+        title={nasaImg.title}
+        url={nasaImg.hdurl}
+        explanation={nasaImg.explanation}
+        date={nasaImg.date}
+      />
+    </div>
+  );
 }
 
 export default App;
