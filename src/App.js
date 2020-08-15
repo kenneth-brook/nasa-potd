@@ -7,12 +7,15 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        //"https://api.nasa.gov/planetary/apod?api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG"
-        "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+        "https://api.nasa.gov/planetary/apod?date=2020-08-11&hd=true&api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG"
+        //"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
       )
       .then((res) => {
         console.log(res.data);
         setNasaImg(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 

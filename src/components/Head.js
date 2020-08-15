@@ -7,8 +7,8 @@ const Head = (props) => {
       <h2 className="title">{props.date}</h2>
       <img className="image" src={props.url} alt="NASA POTD" />
       <div className="info">
-        <h3 className="info">What this amazing image shows</h3>
-        <p className="info">{props.explanation}</p>
+        <h3 className="title">What this amazing image shows</h3>
+        <p className="title">{props.explanation}</p>
       </div>
     </div>
   );
