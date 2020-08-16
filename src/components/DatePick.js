@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DatePick = (props) => {
   const { startDate, setStartDate } = useContext(DateContext);
-
   return (
     <div>
       <p className="title">Select date to view previous images</p>

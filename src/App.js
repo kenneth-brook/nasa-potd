@@ -7,12 +7,13 @@ import { DateContext } from "./DateContext";
 function App(props) {
   const [startDate, setStartDate] = useState(new Date());
   const [nasaImg, setNasaImg] = useState([]);
-  console.log(startDate);
+  let dateGrab = document.getElementsByName("input").textContent;
+  console.log(dateGrab);
   useEffect(
     (props) => {
       axios
         .get(
-          `https://api.nasa.gov/planetary/apod?date=${startDate}&hd=true&api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG`
+          `https://api.nasa.gov/planetary/apod?date=${dateGrab}&hd=true&api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG`
           //"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
         )
         .then((res) => {
