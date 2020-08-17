@@ -5,16 +5,16 @@ import DatePick from "./components/DatePick";
 import { DateContext } from "./DateContext";
 
 function App(props) {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(), 1);
   const [nasaImg, setNasaImg] = useState([]);
-  let dateGrab = document.getElementsByName("input").textContent;
-  console.log(dateGrab);
+  let dateGrab = startDate.toISOString();
+  let splitDate = dateGrab.split("T")[0];
+  console.log(splitDate);
   useEffect(
     (props) => {
       axios
         .get(
-          `https://api.nasa.gov/planetary/apod?date=${dateGrab}&hd=true&api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG`
-          //"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+          `https://api.nasa.gov/planetary/apod?date=${splitDate}&hd=true&api_key=QqBB0MXdMYgdtsphkvSWDRlUjFtG29Ip2lFjypHG`
         )
         .then((res) => {
           console.log(res.data);
