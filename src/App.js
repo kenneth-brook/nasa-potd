@@ -9,7 +9,6 @@ function App(props) {
   const [nasaImg, setNasaImg] = useState([]);
   let dateGrab = startDate.toISOString();
   let splitDate = dateGrab.split("T")[0];
-  console.log(splitDate);
   useEffect(
     (props) => {
       axios
